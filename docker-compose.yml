@@ -29,6 +29,7 @@ services:
 
   superset:
     platform: linux/arm64/v8
+    command: --security-opt seccomp:unconfined
     build:
       context: ./superset
       args:
