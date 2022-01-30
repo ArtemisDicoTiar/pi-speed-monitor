@@ -1,31 +1,31 @@
 version: '3'
 
 services:
-
-  app:
-    build: 
-      context: ./app
-      dockerfile: Dockerfile
-    environment: 
-      - PG_DATABASE=speed_test
-      - PG_USER=postgres
-      - PG_PASSWORD=mysecretpassword
-      - PG_HOST=db
-      - PG_PORT=5432
-    volumes:
-      - ./app/speed_monitor:/speed_monitor
-      - ./app/logs/:/logs/
-    tty: true
-
-  db:
-    image: postgres:13.1
-    environment: 
-      - POSTGRES_PASSWORD=mysecretpassword
-      - POSTGRES_DB=speed_test
-    volumes:
-      - ./dbdata:/var/lib/postgresql/data
-    ports: 
-      - 5432:5432
+#
+#  app:
+#    build:
+#      context: ./app
+#      dockerfile: Dockerfile
+#    environment:
+#      - PG_DATABASE=speed_test
+#      - PG_USER=postgres
+#      - PG_PASSWORD=mysecretpassword
+#      - PG_HOST=db
+#      - PG_PORT=5432
+#    volumes:
+#      - ./app/speed_monitor:/speed_monitor
+#      - ./app/logs/:/logs/
+#    tty: true
+#
+#  db:
+#    image: postgres:13.1
+#    environment:
+#      - POSTGRES_PASSWORD=mysecretpassword
+#      - POSTGRES_DB=speed_test
+#    volumes:
+#      - ./dbdata:/var/lib/postgresql/data
+#    ports:
+#      - 5432:5432
 
   superset:
     build:
