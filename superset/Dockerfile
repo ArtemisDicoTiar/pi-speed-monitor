@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64/v8 ubuntu:latest
+FROM --platform=linux/arm64/v8 ubuntu:20.04
 #USER root
 RUN apt-get update && apt-get -qq -y install curl
 ARG DEBIAN_FRONTEND=noninteractive
