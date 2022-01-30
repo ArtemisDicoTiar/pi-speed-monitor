@@ -2,7 +2,8 @@ FROM --platform=linux/arm64/v8 ubuntu
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -qq -y install curl
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libssl-dev libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev libpq-dev git cmake wget
-RUN apt-get install -y build-essential libssl-dev libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev libpq-dev git cmake wget
+RUN apt-get install -y build-essential libssl-dev lsb-release \
+    libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev libpq-dev git cmake wget
 
 RUN wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
 RUN sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
