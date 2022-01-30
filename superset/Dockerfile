@@ -6,7 +6,7 @@ RUN apt-get install -y build-essential libssl-dev lsb-release \
     libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev libpq-dev git cmake wget
 
 RUN wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
-RUN sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+RUN apt-get install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
 #RUN wget https://apache.bintray.com/arrow/ubuntu/apache-arrow-archive-keyring-latest-focal.deb
 #RUN apt-get install ./apache-arrow-archive-keyring-latest-focal.deb
 
